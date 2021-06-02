@@ -14,14 +14,14 @@ import '../../utils/inject_export.dart';
 import '../../utils/template_file.dart';
 import '../command_base.dart';
 
-class GenerateUsecaseCommand extends CommandBase {
+class CreateUsecaseCommand extends CommandBase {
   @override
   final name = 'usecase';
 
   @override
   final description = 'Creates use case files';
 
-  GenerateUsecaseCommand() {
+  CreateUsecaseCommand() {
     argParser.addFlag('notest',
         abbr: 'n', negatable: false, help: 'Don`t create file test');
     argParser.addOption('connection',
@@ -103,8 +103,7 @@ class GenerateUsecaseCommand extends CommandBase {
     final entityName = entityClass.camelCase.replaceFirst('Entity', '');
     if (!await domainFile.exists()) {
       final templateFile = await TemplateFile.getInstance(
-          domainFile.path.replaceFirst('lib/', '').replaceFirst('.dart', ''),
-          null);
+          domainFile.path.replaceFirst('.dart', ''));
       final isList = filename.endsWith('s');
       var entityParams = [];
       if (entityFile != null) {
@@ -168,7 +167,7 @@ class GenerateUsecaseCommand extends CommandBase {
       }
       await Faste.instance.template.createFile(
         info: TemplateInfo(
-          yaml: domainUsecaseFile,
+          yaml: usecaseFile,
           destiny: templateFile.file,
           key: 'domain_usecase',
           args: [response, operation, params],
@@ -267,7 +266,7 @@ class GenerateUsecaseCommand extends CommandBase {
   String? get invocationSuffix => null;
 }
 
-class GenerateUsecaseAbbrCommand extends GenerateUsecaseCommand {
+class CreateUsecaseAbbrCommand extends CreateUsecaseCommand {
   @override
   final name = 'u';
 }

@@ -1,2 +1,2 @@
-export 'generate/generate.dart';
+export 'create/create.dart';
 export 'command_base.dart';

@@ -1,6 +1,6 @@
 import '../utils/custom_file.dart';
 
-final _modelTemplate = r''' 
+final modelFile = CustomFile(yaml: r''' 
 model: |
   import 'dart:convert';
   $arg7
@@ -24,6 +24,4 @@ model: |
     @override
     String toString() => json.encode(toJson());
   }
-''';
-
-final modelFile = CustomFile(yaml: _modelTemplate);
+''');

@@ -47,8 +47,8 @@ Future executeCommand(CommandRunner runner, List<String> arguments) {
 CommandRunner configureCommand(List<String> arguments) {
   var runner =
       CommandRunner('faste', 'CLI package manager and template for Flutter.')
-        ..addCommand(GenerateCommand())
-        ..addCommand(GenerateCommandAbbr());
+        ..addCommand(CreateCommand())
+        ..addCommand(CreateCommandAbbr());
 
   runner.argParser.addFlag('version', abbr: 'v', negatable: false);
   return runner;

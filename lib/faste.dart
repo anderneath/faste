@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'app/template_creator.dart';
 
 class Faste {

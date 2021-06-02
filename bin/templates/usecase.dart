@@ -1,15 +1,10 @@
 import '../utils/custom_file.dart';
 
-final _domainUsecaseTemplate = r''' 
+final usecaseFile = CustomFile(yaml: r''' 
 domain_usecase: |
   abstract class $fileName|pascalcase { 
     Future<$arg1> $arg2($arg3);
   }
-''';
-
-final domainUsecaseFile = CustomFile(yaml: _domainUsecaseTemplate);
-
-final _localUsecaseTemplate = r''' 
 data_local_usecase: |
   $arg1
 
@@ -26,11 +21,6 @@ data_local_usecase: |
       }
     }
   }
-''';
-
-final localUsecaseFile = CustomFile(yaml: _localUsecaseTemplate);
-
-final _remoteUsecaseTemplate = r''' 
 data_remote_usecase: |
   $arg1
 
@@ -75,6 +65,4 @@ data_remote_usecase: |
       }
     }
   }
-''';
-
-final remoteUsecaseFile = CustomFile(yaml: _remoteUsecaseTemplate);
+''');

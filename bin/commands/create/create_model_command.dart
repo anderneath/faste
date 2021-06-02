@@ -13,7 +13,7 @@ import '../../utils/inject_export.dart';
 import '../../utils/template_file.dart';
 import '../command_base.dart';
 
-class GenerateModelCommand extends CommandBase {
+class CreateModelCommand extends CommandBase {
   @override
   final name = 'model';
 
@@ -40,7 +40,7 @@ class GenerateModelCommand extends CommandBase {
     final lastIndex = filename.indexOf('_');
     filename =
         filename.substring(0, lastIndex == -1 ? filename.length : lastIndex);
-    final path = '$feature/data/models/$pathEnd';
+    final path = 'lib/$feature/data/models/$pathEnd';
     final entityFile =
         File('lib/$feature/domain/entities/${pathEnd}_entity.dart');
     if (!await entityFile.exists()) {
@@ -135,7 +135,7 @@ class GenerateModelCommand extends CommandBase {
   String? get invocationSuffix => null;
 }
 
-class GenerateModelAbbrCommand extends GenerateModelCommand {
+class CreateModelAbbrCommand extends CreateModelCommand {
   @override
   final name = 'm';
 }

@@ -1,35 +1,36 @@
 import '../command_base.dart';
 import '../commands.dart';
-import 'generate_usecase_command.dart';
+import 'create_usecase_command.dart';
 
-class GenerateCommand extends CommandBase {
+class CreateCommand extends CommandBase {
   @override
-  final name = 'generate';
+  final name = 'create';
   @override
   final description =
       'Creates a module, page, widget or repository according to the option.';
 
-  GenerateCommand() {
+  CreateCommand() {
     // addSubcommand(GenerateFeatureCommand());
     // addSubcommand(GeneratePageCommand());
     // addSubcommand(GeneratePresenterCommand());
     // addSubcommand(GenerateViewModelCommand());
     // addSubcommand(GenerateComponentCommand());
-    // addSubcommand(GenerateStringCommand());
     // addSubcommand(GenerateAssetCommand());
-    addSubcommand(GenerateUsecaseCommand());
-    addSubcommand(GenerateUsecaseAbbrCommand());
-    addSubcommand(GenerateModelCommand());
-    addSubcommand(GenerateModelAbbrCommand());
-    addSubcommand(GenerateEntityCommand());
-    addSubcommand(GenerateEntityAbbrCommand());
+    addSubcommand(CreateI18nCommand());
+    addSubcommand(CreateI18nAbbrCommand());
+    addSubcommand(CreateUsecaseCommand());
+    addSubcommand(CreateUsecaseAbbrCommand());
+    addSubcommand(CreateModelCommand());
+    addSubcommand(CreateModelAbbrCommand());
+    addSubcommand(CreateEntityCommand());
+    addSubcommand(CreateEntityAbbrCommand());
   }
 
   @override
   String? get invocationSuffix => null;
 }
 
-class GenerateCommandAbbr extends GenerateCommand {
+class CreateCommandAbbr extends CreateCommand {
   @override
-  final name = 'g';
+  final name = 'c';
 }

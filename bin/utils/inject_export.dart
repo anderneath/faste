@@ -38,7 +38,6 @@ Future<void> injectExport(String path, Directory directory) async {
   } else {
     await exportFile.create();
   }
-
   var result = await Faste.instance.template.addLine(
     params: LineParams(
       exportFile,

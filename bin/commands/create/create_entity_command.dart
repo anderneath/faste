@@ -7,7 +7,7 @@ import '../../utils/inject_export.dart';
 import '../../utils/template_file.dart';
 import '../command_base.dart';
 
-class GenerateEntityCommand extends CommandBase {
+class CreateEntityCommand extends CommandBase {
   @override
   final name = 'entity';
 
@@ -27,7 +27,7 @@ class GenerateEntityCommand extends CommandBase {
       print('=======================================');
       return;
     }
-    final path = '$feature/domain/entities/${argResults?.rest.last}'
+    final path = 'lib/$feature/domain/entities/${argResults?.rest.last}'
         .replaceFirst('_$key', '')
         .replaceFirst('.dart', '');
     final templateFile = await TemplateFile.getInstance(path, key);
@@ -47,7 +47,7 @@ class GenerateEntityCommand extends CommandBase {
   String? get invocationSuffix => null;
 }
 
-class GenerateEntityAbbrCommand extends GenerateEntityCommand {
+class CreateEntityAbbrCommand extends CreateEntityCommand {
   @override
   final name = 'e';
 }
